@@ -4,7 +4,7 @@ namespace Debugify.Patch
 {
     internal static class MaskedPlayerEnemyPatch
     {
-        [HarmonyPatch(typeof(MaskedPlayerEnemy), nameof(MaskedPlayerEnemy.CancelSpecialAnimationWithPlayer))]
+        [HarmonyPatch(typeof(MaskedPlayerEnemy), "CancelSpecialAnimationWithPlayer")]
         [HarmonyPrefix]
         static void CancelSpecialAnimationWithPlayer(MaskedPlayerEnemy __instance)
         {
@@ -14,6 +14,11 @@ namespace Debugify.Patch
                 HUDManager.Instance.HUDAnimator.SetBool("biohazardDamage", value: false);
                 HUDManager.Instance.HideHUD(hide: true);
                 HUDManager.Instance.HideHUD(hide: false);
+
+                if (Plugin.DEBUGMODE.Value)
+                {
+                    Plugin.Logger.LogInfo("biohazardDamage animation disabled");
+                }
             }
         }
     }

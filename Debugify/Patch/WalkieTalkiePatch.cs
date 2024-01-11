@@ -4,7 +4,7 @@ namespace Debugify.Patch
 {
     internal static class WalkieTalkiePatch
     {
-        [HarmonyPatch(typeof(WalkieTalkie), nameof(DiscardItem))]
+        [HarmonyPatch(typeof(WalkieTalkie), "DiscardItem")]
         [HarmonyPostfix]
         static void DiscardItem(WalkieTalkie __instance)
         {
@@ -16,6 +16,11 @@ namespace Debugify.Patch
                 __instance.walkieTalkieLight.enabled = __instance.isBeingUsed;
 
                 __instance.thisAudio.PlayOneShot(__instance.switchWalkieTalkiePowerOff);
+
+                if (Plugin.DEBUGMODE.Value)
+                {
+                    Plugin.Logger.LogInfo("Walkie talkie disabled");
+                }
             }
         }
     }
