@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace Debugify.Patch
 {
+    [HarmonyPatch(typeof(FlashlightItem))]
     internal static class FlashlightItemPatch
     {
-
-        [HarmonyPatch(typeof(FlashlightItem), "DiscardItem")]
+        [HarmonyPatch("DiscardItem")]
         [HarmonyPostfix]
         static void DiscardItem(FlashlightItem __instance)
         {
-            if (Plugin.FlashlightDiscardFix.Value && __instance.isBeingUsed) // PluginConfig.FlashlightDiscardFix.Value
+            if (Plugin.Config.FlashlightDiscardFix && __instance.isBeingUsed) // PluginConfig.FlashlightDiscardFix.Value
             {
                 __instance.isBeingUsed = false;
 
@@ -19,7 +19,7 @@ namespace Debugify.Patch
 
                 __instance.flashlightAudio.PlayOneShot(__instance.flashlightClips[Random.Range(0, __instance.flashlightClips.Length)]);
 
-                if (Plugin.DEBUGMODE.Value)
+                if (Plugin.Config.DEBUGMODE)
                 {
                     Plugin.Logger.LogInfo("Flashlight disabled");
                 }

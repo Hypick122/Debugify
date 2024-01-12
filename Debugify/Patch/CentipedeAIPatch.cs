@@ -2,9 +2,10 @@
 
 namespace Debugify.Patch
 {
+    //[HarmonyPatch(typeof(CentipedeAI))]
     internal static class CentipedeAIPatch
     {
-        //[HarmonyPatch(typeof(CentipedeAI), nameof(DoAIInterval))]
+        //[HarmonyPatch("DoAIInterval")]
         public static void DoAIInterval(CentipedeAI __instance)
         {
 

@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <AssemblyName>Debugify</AssemblyName>
-        <Description>This mod fixes bugs and shortcomings in the game (one so far) with the ability to customize</Description>
+        <Description>Corrects a number of shortcomings and bugs in the game. With configuration</Description>
         <Version>0.1.0</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>latest</LangVersion>
