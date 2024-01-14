@@ -3,7 +3,7 @@
 namespace Debugify.Patch
 {
     [HarmonyPatch(typeof(BlobAI))]
-    internal static class BlobAIPatch
+    internal class BlobAIPatch
     {
         [HarmonyPatch("OnCollideWithPlayer")]
         [HarmonyPrefix]
@@ -14,10 +14,7 @@ namespace Debugify.Patch
                 float tamedTimer = Traverse.Create(__instance).Field("tamedTimer").GetValue<float>();
                 float angeredTimer = Traverse.Create(__instance).Field("angeredTimer").GetValue<float>();
 
-                if (tamedTimer > 0f && angeredTimer <= 0f)
-                {
-                    return false;
-                }
+                return !(tamedTimer > 0f && angeredTimer <= 0f);
             }
             return true;
         }

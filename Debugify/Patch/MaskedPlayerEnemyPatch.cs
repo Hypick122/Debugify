@@ -3,7 +3,7 @@
 namespace Debugify.Patch
 {
     [HarmonyPatch(typeof(MaskedPlayerEnemy))]
-    internal static class MaskedPlayerEnemyPatch
+    internal class MaskedPlayerEnemyPatch
     {
         [HarmonyPatch("CancelSpecialAnimationWithPlayer")]
         [HarmonyPrefix]

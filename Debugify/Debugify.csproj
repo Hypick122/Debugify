@@ -4,10 +4,18 @@
         <TargetFramework>netstandard2.1</TargetFramework>
         <AssemblyName>Debugify</AssemblyName>
         <Description>Corrects a number of shortcomings and bugs in the game. With configuration</Description>
-        <Version>0.1.0</Version>
+        <Version>0.2.0</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Patch\Debug.cs1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="Patch\Debug.cs1" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />

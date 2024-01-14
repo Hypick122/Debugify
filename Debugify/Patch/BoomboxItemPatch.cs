@@ -3,7 +3,7 @@
 namespace Debugify.Patch
 {
     [HarmonyPatch(typeof(BoomboxItem))]
-    internal static class BoomboxItemPatch
+    internal class BoomboxItemPatch
     {
         [HarmonyPatch("PocketItem")]
         [HarmonyPrefix]
