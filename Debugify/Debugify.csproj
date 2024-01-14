@@ -10,14 +10,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Patch\Debug.cs1" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Include="Patch\Debug.cs1" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
         <PackageReference Include="BepInEx.Core" Version="5.*" />
         <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
